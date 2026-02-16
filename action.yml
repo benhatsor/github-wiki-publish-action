@@ -1,4 +1,4 @@
-name: "Publish to GitHub Wiki"
+name: "Publish Markdown to GitHub Wiki"
 description: "Pushes files to a GitHub project's wiki"
 
 inputs:
