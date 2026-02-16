@@ -73,7 +73,7 @@ debug "Adding changed files"
 debug "Enumerating contents of $1"
 for file in $(find $1 -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
     debug "Copying $file"
-    cp "$1/$file" "$tmp_dir"
+    cp -r "$1/$file" "$tmp_dir"
 done
 
 debug "Committing and pushing changes"
