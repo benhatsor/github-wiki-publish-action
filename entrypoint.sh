@@ -59,7 +59,7 @@ debug "Adding changed files"
 ) || exit 1
 
 debug "Deleting contents of $tmp_dir"
-rm -r $tmp_dir
+rm -r $tmp_dir/*
 # for file in $(find $tmp_dir -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
 #    debug "Deleting $file"
 #    rm -rf "$tmp_dir/$file"
