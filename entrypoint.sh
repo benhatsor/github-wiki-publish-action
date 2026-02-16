@@ -59,10 +59,11 @@ debug "Adding changed files"
 ) || exit 1
 
 debug "Deleting contents of $tmp_dir"
-for file in $(find $tmp_dir -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
-    debug "Deleting $file"
-    rm -rf "$tmp_dir/$file"
-done
+rm -r $tmp_dir
+# for file in $(find $tmp_dir -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
+#    debug "Deleting $file"
+#    rm -rf "$tmp_dir/$file"
+#done
 
 debug "Adding changed files"
 (
@@ -70,7 +71,7 @@ debug "Adding changed files"
     git add .
 ) || exit 1
 
-debug "Enumerating contents of $1"
+debug "Copying contents of $1 to $tmp_dir"
 cp -R $1 $tmp_dir
 # for file in $(find $1 -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
 #    debug "Copying $file"
