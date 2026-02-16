@@ -71,10 +71,11 @@ debug "Adding changed files"
 ) || exit 1
 
 debug "Enumerating contents of $1"
-for file in $(find $1 -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
-    debug "Copying $file"
-    cp -r "$1/$file" "$tmp_dir"
-done
+cp -R $1 $tmp_dir
+# for file in $(find $1 -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
+#    debug "Copying $file"
+#     cp -r "$1/$file" "$tmp_dir"
+#done
 
 debug "Committing and pushing changes"
 (
