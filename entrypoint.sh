@@ -59,7 +59,7 @@ debug "Adding changed files"
 ) || exit 1
 
 debug "Deleting contents of $tmp_dir"
-for file in $(find $tmp_dir -maxdepth 1 -type f -name '*.md' -execdir basename '{}' ';'); do
+for file in $(find $tmp_dir -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
     debug "Deleting $file"
     rm -rf "$tmp_dir/$file"
 done
@@ -71,7 +71,7 @@ debug "Adding changed files"
 ) || exit 1
 
 debug "Enumerating contents of $1"
-for file in $(find $1 -maxdepth 1 -type f -name '*.md' -execdir basename '{}' ';'); do
+for file in $(find $1 -maxdepth 100 -type f -name '*.md' -execdir basename '{}' ';'); do
     debug "Copying $file"
     cp "$1/$file" "$tmp_dir"
 done
