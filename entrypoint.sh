@@ -55,7 +55,7 @@ tmp_dir=$(mktemp -d -t ci-XXXXXXXXXX)
 debug "Deleting contents of $tmp_dir"
 for file in $(find $tmp_dir -maxdepth 1 -type f -name '*.md' -execdir basename '{}' ';'); do
     debug "Deleting $file"
-    rm -f "$tmp_dir/$file"
+    rm -rf "$tmp_dir/$file"
 done
 
 debug "Enumerating contents of $1"
